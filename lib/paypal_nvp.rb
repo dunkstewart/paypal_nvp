@@ -54,7 +54,6 @@ class PaypalNVP
         res
       }
     }
-    data = { :response => response }
     
     case response
     when Net::HTTPSuccess
