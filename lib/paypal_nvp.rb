@@ -46,7 +46,6 @@ class PaypalNVP
       http.verify_mode = OpenSSL::SSL::VERIFY_PEER
       http.verify_depth = 5
     else
-      puts "WARNING: no ssl certs found. Paypal communication will be insecure. DO NOT DEPLOY"
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
 
