@@ -55,13 +55,16 @@ class PaypalNVP
       }
     }
     data = { :response => response }
-    if response.kind_of? Net::HTTPSuccess
+    
+    case response
+    when Net::HTTPSuccess
       response.body.split("&").each do |element|
         a = element.split("=")
         data[a[0]] = CGI.unescape(a[1]) if a.size == 2
       end
-    end 
+    else
+      response.error!
+    end
     data
   end
-    
 end
